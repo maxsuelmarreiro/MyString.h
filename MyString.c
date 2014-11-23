@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "MyString.h"
 
+//Recebe uma string s e retorna o tamanho da string s.
 int mystrlen(char *s){
 	if(s == NULL){
 		return 0;
@@ -14,7 +15,11 @@ int mystrlen(char *s){
     return qtd;    
 }
 
+// Compara duas strings s1 e s2 e retorna um valor menor que zero, igual a
+// zero ou maior que zero caso a string s1 seja, respectivamente, menor, igual
+// ou maior que a string s2.
 int mystrcmp(char *s1, char *s2){
+	//
 	//if(s == NULL){
 	//	return 0;
 	//}
@@ -28,9 +33,9 @@ int mystrcmp(char *s1, char *s2){
     }
 }
 
+// Equivalente a função anterior, exceto que realiza a comparação apenas dos
+// n primeiros caracteres das duas strings.
 int mystrncmp(char *s1, char *s2, int n){
-	// Equivalente a função anterior, exceto que realiza a comparação apenas dos
-	// n primeiros caracteres das duas strings.
 	int i, igual = 0;
 	
 	for(i=0; i<n; i++){
@@ -43,6 +48,7 @@ int mystrncmp(char *s1, char *s2, int n){
 	return 0;
 }
 
+// Concatena a strings s2 ao final de s1.
 char *mystrcat(char *s1, char *s2){
 	int i,j=0;
 	//int *v1;
@@ -58,18 +64,23 @@ char *mystrcat(char *s1, char *s2){
 	
 	return s1;
 }
+
+// Concatena os n primeiros caracteres de s2 ao final de s1.
 char *mystrncat(char *s1, char *s2, int n){
 	int i,j=0;
+	int temp = mystrlen(s1)+n;
 	
-	for(i=n; i < n*2; i++ ){
+	for(i=mystrlen(s1); i < temp; i++){
 		s1[i] = s2[j];
 		j++;
 	}
-	
-	s1[n*2] = '\0';
-	
+
+	s1[temp] = '\0';
+
 	return s1;
 }
+
+
 char *mystrcpy(char *s1, char *s2){}
 char *mystrncpy(char *s1, char *s2, int n){}
 char *mystrdup(char *s){}

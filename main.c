@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "MyString.h"
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main() {
     
-	char s[] = "MAXSUELMARREIRODASCHAGAS";
-    char s1[] = "ddd";
-    char s2[] = "DDDD";
+	char s[] = "MaxsuelMarreiro";
+    char s1[] = "MMM";
+    char s2[] = "aaaaaaaaaaaaaaa";
 
-	printf("%s", mystrncat(s1,s2, 4));
+	printf("%s", mystrncat(s1,s2, 2));
 
 
     //printf("%d", mystrlen(s2));
