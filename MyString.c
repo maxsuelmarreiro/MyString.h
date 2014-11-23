@@ -80,7 +80,30 @@ char *mystrncat(char *s1, char *s2, int n){
 	return s1;
 }
 
+// Copia o conteúdo da string s2 para a string s1.
+char *mystrcpy(char *s1, char *s2){
+	int temp = 0;
+	while (s1[temp] != '\0') {
+		s2[temp] = s1[temp];
+		temp++;
+	}
+	s2[temp] = '\0';
+	
+	return s2;
+}
 
-char *mystrcpy(char *s1, char *s2){}
-char *mystrncpy(char *s1, char *s2, int n){}
+// Copia os n primeiros caracteres de s2 para a string s1.
+char *mystrncpy(char *s1, char *s2, int n){
+	int temp = 0;
+	while (temp != n) {
+		s1[temp] = s2[temp];
+		temp++;
+	}
+	
+	s1[temp] = '\0';
+	
+	return s1;
+}
+
+// Aloca memória e retorna uma nova string que é a cópia da string s.
 char *mystrdup(char *s){}

@@ -6,11 +6,13 @@ int main() {
     
 	char s[] = "MaxsuelMarreiro";
     char s1[] = "MMM";
-    char s2[] = "aaaaaaaaaaaaaaa";
-
-	printf("%s", mystrncat(s1,s2, 2));
-
-
+    char s2[] = "aa";
+	
+	mystrncpy(s1,s2, 4);
+	
+	printf("%s",s1);	
+	
+	//printf("%s", mystrncat(s1,s2, 2));
     //printf("%d", mystrlen(s2));
     //printf("%d", mystrncmp(s1,s2,2));
 
