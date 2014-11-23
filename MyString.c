@@ -106,4 +106,11 @@ char *mystrncpy(char *s1, char *s2, int n){
 }
 
 // Aloca memória e retorna uma nova string que é a cópia da string s.
-char *mystrdup(char *s){}
+char *mystrdup(char *s){
+	int temp = mystrlen(s)+1;
+	char *nova = malloc(temp);
+	
+	mystrncpy(nova, s, temp);
+	
+	return nova;
+}
