@@ -3,14 +3,22 @@
 #include "MyString.h"
 
 int main() {    
-	char s[] = "MaxsuelMarreiro";
-    char s1[] = "MMM";
-    char *s2; 
+	char s1[] = "AAB";
+	char s2[] = "AAA";
 	
-	s2 = mystrdup(s1);
+	char a1[] = "AAA";
+	char a2[] = "AAB";
 	
-	printf("%s",s2);	
+	char b1[] = "AAA";
+	char b2[] = "AAA";
 	
+    char *s3 = "XXXX"; 
+	
+	s3 = mystrdup(s1);
+	
+	printf("%d", mystrncmp(s1,s2,3));	
+	printf("%d", mystrncmp(a1,a2,3));	
+	printf("%d", mystrncmp(b1,b2,3));	
 	//mystrncpy(s1,s2, 4);	
 	//printf("%s", mystrncat(s1,s2, 2));
     //printf("%d", mystrlen(s2));

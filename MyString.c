@@ -6,9 +6,9 @@ int mystrlen(char *s){
 	if(s == NULL){
 		return 0;
 	}
-	
     int qtd=0, i=0;
-    while(s[i] != '\0'){
+    
+	while(s[i] != '\0'){
       qtd++;
       i++;
     }
@@ -18,34 +18,34 @@ int mystrlen(char *s){
 // Compara duas strings s1 e s2 e retorna um valor menor que zero, igual a
 // zero ou maior que zero caso a string s1 seja, respectivamente, menor, igual
 // ou maior que a string s2.
-int mystrcmp(char *s1, char *s2){
-	//
-	//if(s == NULL){
-	//	return 0;
-	//}
-	
-    if(mystrlen(s1) < mystrlen(s2)){
-          return -1;
-    }else if(mystrlen(s1) > mystrlen(s2)){
-          return 1;
-    }else{
-          return 0;
-    }
+
+int mystrcmp(char *s1, char *s2){	
+	while(*s1 == *s2){
+		if( *s1 == '\0' ){
+			return *s1 - *s1;
+		}
+		s1++;
+		s2++;
+	}
+	return *s1 - *s2;
 }
 
 // Equivalente a função anterior, exceto que realiza a comparação apenas dos
 // n primeiros caracteres das duas strings.
 int mystrncmp(char *s1, char *s2, int n){
-	int i, igual = 0;
+	int i=0;
+	int j=0;
 	
-	for(i=0; i<n; i++){
-		if(s1[i] == s2[i]){
-			igual++;
-		}else{
-			return -1;
+	while(n>0){
+		if(s1[i] == '\0' || s1[i] != s2[j]){
+			return s1[i] - s2[j];
 		}
+	i++;
+	j++;
+	n--;
 	}
-	return 0;
+
+	return s1[i] - s2[j];
 }
 
 // Concatena a strings s2 ao final de s1.
@@ -59,9 +59,9 @@ char *mystrcat(char *s1, char *s2){
 		s1[i] = s2[j];
 		j++;
 	}
-	
+
 	s1[tam] = '\0';
-	
+
 	return s1;
 }
 
@@ -88,7 +88,7 @@ char *mystrcpy(char *s1, char *s2){
 		temp++;
 	}
 	s2[temp] = '\0';
-	
+
 	return s2;
 }
 
@@ -108,9 +108,9 @@ char *mystrncpy(char *s1, char *s2, int n){
 // Aloca memória e retorna uma nova string que é a cópia da string s.
 char *mystrdup(char *s){
 	int temp = mystrlen(s)+1;
-	char *nova = malloc(temp);
-	
-	mystrncpy(nova, s, temp);
-	
+	char *nova = (char*) malloc(temp*sizeof(char));
+
+	mystrcpy(s, nova);
+
 	return nova;
 }
